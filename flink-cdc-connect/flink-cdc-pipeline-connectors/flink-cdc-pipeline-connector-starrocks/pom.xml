@@ -28,8 +28,8 @@ limitations under the License.
     <artifactId>flink-cdc-pipeline-connector-starrocks</artifactId>
 
     <properties>
-        <!-- TODO: Update this, when StarRocks releases a 1.20 compatible connector. -->
-        <starrocks.connector.version>1.2.10_flink-1.19</starrocks.connector.version>
+        <!-- Connector JAR name aligned with flink-cdc-dist: ...-<revision>-<flink.major.version>.jar -->
+        <connector.jar.basename>flink-cdc-pipeline-connector-starrocks-${revision}-${flink.major.version}</connector.jar.basename>
     </properties>
 
     <dependencies>
@@ -89,6 +89,7 @@ limitations under the License.
     </dependencies>
 
     <build>
+        <finalName>${connector.jar.basename}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -115,6 +116,7 @@ limitations under the License.
                         </goals>
                         <configuration>
                             <shadeTestJar>false</shadeTestJar>
+                            <finalName>${connector.jar.basename}</finalName>
                             <artifactSet>
                                 <includes>
                                     <include>com.starrocks:*</include>

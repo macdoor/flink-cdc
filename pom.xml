@@ -109,6 +109,7 @@ limitations under the License.
         <maven.compiler.target>${target.java.version}</maven.compiler.target>
         <!-- Which compat JAR to bundle in dist: flink-cdc-flink-compat-flink1 (1.x) or flink-cdc-flink-compat-flink2 (2.x). Overridden by profile flink-2.2. -->
         <flink.cdc.compat.artifact>flink-cdc-flink-compat-flink1</flink.cdc.compat.artifact>
+        <starrocks.connector.version>1.2.10_flink-1.19</starrocks.connector.version>
     </properties>
 
     <dependencyManagement>
@@ -742,6 +743,7 @@ limitations under the License.
                 <flink.version>2.2.0</flink.version>
                 <flink.major.version>2.2</flink.major.version>
                 <flink.cdc.compat.artifact>flink-cdc-flink-compat-flink2</flink.cdc.compat.artifact>
+                <starrocks.connector.version>1.2.15_flink-2.2-SNAPSHOT</starrocks.connector.version>
                 <java.version>17</java.version>
                 <source.java.version>17</source.java.version>
                 <target.java.version>17</target.java.version>
