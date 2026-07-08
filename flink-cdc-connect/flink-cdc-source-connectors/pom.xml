@@ -37,6 +37,7 @@ limitations under the License.
         <module>flink-connector-oceanbase-cdc</module>
         <module>flink-connector-oracle-cdc</module>
         <module>flink-connector-postgres-cdc</module>
+        <module>flink-connector-opengauss-cdc</module>
         <module>flink-connector-sqlserver-cdc</module>
         <module>flink-connector-test-util</module>
         <module>flink-connector-tidb-cdc</module>
