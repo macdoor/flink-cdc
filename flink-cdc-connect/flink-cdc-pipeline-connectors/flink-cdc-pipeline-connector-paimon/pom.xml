@@ -41,6 +41,8 @@ limitations under the License.
             <groupId>org.apache.paimon</groupId>
             <artifactId>paimon-flink-${paimon.flink.major.version}</artifactId>
             <version>${paimon.version}</version>
+            <!-- Thin jar: ship paimon jars separately under flink/lib (or flink-cdc lib). -->
+            <scope>provided</scope>
         </dependency>
 
         <!-- test -->
@@ -257,34 +259,8 @@ limitations under the License.
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>${maven.shade.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>shade-flink</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <shadeTestJar>false</shadeTestJar>
-                            <artifactSet>
-                                <includes>
-                                    <include>org.apache.paimon:*</include>
-                                </includes>
-                            </artifactSet>
-                            <relocations>
-                                <relocation>
-                                    <pattern>org.apache.kafka</pattern>
-                                    <shadedPattern>shaded.paimon.org.apache.kafka</shadedPattern>
-                                </relocation>
-                            </relocations>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+            <!-- Shade plugin removed: do not bundle paimon jars into the connector artifact.
+                 Provide paimon-flink / paimon-* on the Flink classpath instead. -->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
